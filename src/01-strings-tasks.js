@@ -198,61 +198,8 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-
-// function getRectangleString(width, height) {
-
-// let s = '';
-//   for (let i = 0; i < height; i++) {
-//     for (let j = 0; j < width; j++) {
-//       if (i == 0) {
-//         if (j == 0) {
-//           s += '┌';
-//         }
-//         if (j == width - 1) {
-//           s += '┐\n';
-//         } else {
-//           s += '─';
-//         }
-//       } else if (i == height - 1) {
-//         if (j == 0) {
-//           s += '└';
-//         }
-//         if (j == width - 1) {
-//           s += '┘\n';
-//         } else {
-//           s += '─';
-//         }
-//       } else {
-//         if (j == 0) {
-//           s += '│';
-//         }
-//         if (j == width - 1) {
-//           s += '│\n';
-//         } else {
-//           s += ' ';
-//         }
-//       }
-//     }
-//   }
-
-//   return s;
-// }
-
-function getRectangleString(width, height) {
-  let s = '';
-  for (let i = 0; i < height; i++) {
-    for (let j = 0; j < width; j++) {
-      if (i == 0) {
-        j == 0 ? (s += '┌') : j == width - 1 ? (s += '┐\n') : (s += '─');
-      } else if (i == height - 1) {
-        j == 0 ? (s += '└') : j == width - 1 ? (s += '┘\n') : (s += '─');
-      } else {
-        j == 0 ? (s += '│') : j == width - 1 ? (s += '│\n') : (s += ' ');
-      }
-    }
-  }
-
-  return s;
+function getRectangleString(/* width, height */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -289,7 +236,7 @@ function encodeToRot13(/* str */) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return typeof value == 'string';
+  return typeof value === 'string' || value instanceof String;
 }
 
 /**
@@ -316,68 +263,8 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-
-const initDeck = [
-  'A♣',
-  '2♣',
-  '3♣',
-  '4♣',
-  '5♣',
-  '6♣',
-  '7♣',
-  '8♣',
-  '9♣',
-  '10♣',
-  'J♣',
-  'Q♣',
-  'K♣',
-  'A♦',
-  '2♦',
-  '3♦',
-  '4♦',
-  '5♦',
-  '6♦',
-  '7♦',
-  '8♦',
-  '9♦',
-  '10♦',
-  'J♦',
-  'Q♦',
-  'K♦',
-  'A♥',
-  '2♥',
-  '3♥',
-  '4♥',
-  '5♥',
-  '6♥',
-  '7♥',
-  '8♥',
-  '9♥',
-  '10♥',
-  'J♥',
-  'Q♥',
-  'K♥',
-  'A♠',
-  '2♠',
-  '3♠',
-  '4♠',
-  '5♠',
-  '6♠',
-  '7♠',
-  '8♠',
-  '9♠',
-  '10♠',
-  'J♠',
-  'Q♠',
-  'K♠',
-];
-
-function getCardId(value) {
-  let i;
-  for (i = 0; i < initDeck.length; i++) {
-    if (card == value) break;
-  }
-  return i;
+function getCardId(/* value */) {
+  throw new Error('Not implemented');
 }
 
 module.exports = {

@@ -50,7 +50,7 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -106,14 +106,13 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  let scalarProduct = x1 * x2 + y1 * y2;
-  let vectorModX = Math.sqrt(x1 ** 2 + y1 ** 2);
-  let vectorModY = Math.sqrt(x2 ** 2 + y2 ** 2);
-  let angleCos = scalarProduct / (vectorModX * vectorModY);
-  let angleDegree = Math.acos(angleCos) * (180 / Math.PI);
-  return 180 / angleDegree > 1 ? `Math.PI / ${180 / angleDegree}` : 'Math.PI';
+  const scalarProduct = x1 * x2 + y1 * y2;
+  const vectorModX = Math.sqrt(x1 ** 2 + y1 ** 2);
+  const vectorModY = Math.sqrt(x2 ** 2 + y2 ** 2);
+  const angleCos = scalarProduct / (vectorModX * vectorModY);
+  const angleDegree = Math.acos(angleCos) * (180 / Math.PI);
+  return 180 / angleDegree > 1 ? Math.PI / (180 / angleDegree) : Math.PI;
 }
 
 /**
@@ -129,7 +128,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-  let arr = value.toString().split('');
+  const arr = value.toString().split('');
   return +arr[arr.length - 1];
 }
 
@@ -204,10 +203,13 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  for (let i = 2; i < n; i++) {
-    if (n % i == 0) return false;
-  }
-  return true;
+  if (n === 2) return true;
+  let arr = Array(n - 2)
+    .fill()
+    .map((_, i) => i + 2);
+  arr = arr.filter((el) => n % el === 0);
+  if (arr.length === 0) return true;
+  return false;
 }
 
 /**
