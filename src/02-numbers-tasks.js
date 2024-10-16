@@ -203,6 +203,7 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
+  if (n <= 1) return false;
   if (n === 2) return true;
   let arr = Array(n - 2)
     .fill()
