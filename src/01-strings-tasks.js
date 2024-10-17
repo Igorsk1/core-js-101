@@ -225,10 +225,6 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  // throw new Error('Not implemented');
-  // str.split('').forEach(el =>
-  //   el = String.fromCharCode(el.charCodeAt() < 110 ? el.charCodeAt()+ 13 : )
-  // )
   const enc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
   const dec = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
   return str.split('')

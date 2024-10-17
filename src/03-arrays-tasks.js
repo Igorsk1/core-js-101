@@ -266,7 +266,6 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-  // throw new Error('Not implemented');
   return arr.map((el, i) => Array(i + 1).fill(el)).flat();
 }
 
@@ -455,7 +454,6 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
-  // throw new Error('Not implemented');
   return Array(n)
     .fill(Array(n).fill())
     .map((el, i) => el.map((_, index) => (index === i ? 1 : 0)));
@@ -582,12 +580,6 @@ function getElementByIndexes(/* arr, indexes */) {
  */
 function swapHeadAndTail(/* arr */) {
   throw new Error('Not implemented');
-
-  // if (arr.length === 1) return arr;
-  // const head = arr.slice(0, Math.floor(arr.length / 2));
-  // const tail = arr.slice(-Math.floor(arr.length / 2));
-  // if (head.length + tail.length < arr.length)  middle = arr[head.length];
-  // return tail.concat(middle).concat(head);
 }
 
 module.exports = {

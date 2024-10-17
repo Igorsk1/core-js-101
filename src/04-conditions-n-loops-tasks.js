@@ -65,7 +65,6 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-  // throw new Error('Not implemented');
   let sum = 0;
   for (let i = n1; i <= n2; i += 1) {
     sum += i;
@@ -206,7 +205,6 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-  // throw new Error('Not implemented');
   const left = isStartIncluded === true ? '[' : '(';
   const right = isEndIncluded === true ? ']' : ')';
   const nums = a > b ? [b, a] : [a, b];
@@ -313,7 +311,6 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true
  */
 function isBracketsBalanced(str) {
-  // throw new Error('Not implemented');
   const b = ['[]', '()', '{}', '<>'];
   let s = str;
   for (let i = 0; i < b.length; i += 1) {
@@ -321,6 +318,7 @@ function isBracketsBalanced(str) {
       s = s.replace(b[i], '');
       i = -1;
     }
+
     if (s.length === 0) return true;
   }
 
