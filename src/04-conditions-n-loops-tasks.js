@@ -156,8 +156,8 @@ function doRectanglesOverlap(rect1, rect2) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(circle, point) {
+  return (point.x - circle.center.x) ** 2 + (point.y - circle.center.y) ** 2 < circle.radius ** 2;
 }
 
 /**
@@ -263,8 +263,12 @@ function reverseInteger(num) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* ccn */) {
-  throw new Error('Not implemented');
+function isCreditCardNumber(ccn) {
+  const numbers = ccn.toString().split('').reverse().map((el) => Number(el));
+  const sum = numbers.map((num, i) => (i % 2 === 0 ? num : num * 2))
+    .map((num) => (num > 9 ? (num % 10) + Math.floor((num / 10)) : num))
+    .reduce((acc, num) => acc + num);
+  return (sum % 10) === 0;
 }
 
 /**
@@ -391,8 +395,21 @@ function getCommonDirectoryPath(/* pathes */) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(/* m1, m2 */) {
-  throw new Error('Not implemented');
+function getMatrixProduct(m1, m2) {
+  const res = [];
+
+  for (let i = 0; i < m1.length; i += 1) {
+    res.push([]);
+    for (let j = 0; j < m2[i].length; j += 1) {
+      let num = 0;
+      for (let k = 0; k < m1[i].length; k += 1) {
+        num += m1[i][k] * m2[k][j];
+      }
+      res[i].push(num);
+    }
+  }
+
+  return res;
 }
 
 /**
@@ -425,8 +442,25 @@ function getMatrixProduct(/* m1, m2 */) {
  *    [    ,   ,    ]]
  *
  */
-function evaluateTicTacToePosition(/* position */) {
-  throw new Error('Not implemented');
+function evaluateTicTacToePosition(position) {
+  for (let i = 0; i < position.length; i += 1) {
+    let resX = '';
+    let resY = '';
+    let leftDiagonal = '';
+    let rightDiagonal = '';
+
+    for (let j = 0; j < position.length; j += 1) {
+      resX += position[i][j];
+      resY += position[j][i];
+      leftDiagonal += position[j][j];
+      rightDiagonal += position[j][2 - j];
+    }
+
+    if ((resX === 'XXX') || (resY === 'XXX') || (leftDiagonal === 'XXX') || (rightDiagonal === 'XXX')) return 'X';
+    if ((resX === '000') || (resY === '000') || (leftDiagonal === '000') || (rightDiagonal === '000')) return '0';
+  }
+
+  return undefined;
 }
 
 module.exports = {
